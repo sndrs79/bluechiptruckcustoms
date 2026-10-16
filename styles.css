@@ -440,6 +440,55 @@ h2 {
 
 .email:hover { color: var(--ink); }
 
+.follow {
+  padding: 88px 0 8px;
+}
+
+.follow h2 { margin-bottom: 0; }
+
+.link-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 640px;
+  margin-top: 28px;
+}
+
+.link-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  min-height: 68px;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  text-decoration: none;
+}
+
+.link-row:hover {
+  border-color: var(--orange);
+  background: rgba(255, 106, 26, 0.08);
+}
+
+.link-name {
+  font-size: 18px;
+  font-weight: 620;
+  letter-spacing: -0.03em;
+}
+
+.link-meta {
+  color: var(--muted);
+  font-size: 14px;
+  text-align: right;
+}
+
+.link-go {
+  color: var(--orange);
+  font-size: 18px;
+  line-height: 1;
+}
+
 .site-footer {
   padding: 0 0 28px;
 }
@@ -462,6 +511,7 @@ h2 {
 #ophelia,
 #the-58,
 #gear,
+#follow,
 #book { scroll-margin-top: 76px; }
 
 @media (max-width: 900px) {
@@ -470,21 +520,24 @@ h2 {
   .wrap { width: min(var(--max), calc(100% - 32px)); }
 
   .site-header {
-    padding: 0 12px;
+    padding: 0 10px;
     gap: 8px;
   }
 
-  .mark { font-size: 15px; }
+  .mark { font-size: 14px; }
 
-  .mark a { gap: 7px; }
+  .mark a { gap: 6px; }
 
   .mark-rest { display: none; }
 
-  .nav { gap: 8px; }
+  .nav { gap: 4px; }
 
-  .nav a { font-size: 13px; }
+  .nav a {
+    font-size: 12px;
+    white-space: nowrap;
+  }
 
-  .nav-book { padding: 6px 10px; }
+  .nav-book { padding: 6px 9px; }
 
   .hero { grid-template-columns: 1fr; }
 
@@ -510,6 +563,20 @@ h2 {
   .gallery-detail .wheel { max-width: 420px; }
 
   .gear { margin-top: 72px; }
+
+  .follow { padding-top: 64px; }
+
+  .link-row {
+    grid-template-columns: 1fr auto;
+    gap: 8px 12px;
+  }
+
+  .link-meta {
+    grid-column: 1;
+    text-align: left;
+  }
+
+  .link-go { grid-column: 2; grid-row: 1 / span 2; }
 
   .book { padding: 64px 0 48px; }
 
