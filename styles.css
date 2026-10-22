@@ -394,7 +394,52 @@ h2 {
 
 .text-link:hover { color: var(--orange); }
 
+.spot { padding: 72px 0 8px; }
+
+.spot-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px 48px;
+  align-items: end;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+}
+
+.spot-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.spot-copy p { max-width: 28em; }
+
 .book { padding: 88px 0 72px; }
+
+.film {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.film p { margin: 0; }
+
+.film-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.film-links a {
+  font-weight: 620;
+  letter-spacing: -0.02em;
+  text-underline-offset: 3px;
+}
+
+.film-links a:hover { color: var(--orange); }
 
 .book-grid {
   display: grid;
@@ -512,6 +557,7 @@ h2 {
 #the-58,
 #gear,
 #follow,
+#framed,
 #book { scroll-margin-top: 76px; }
 
 @media (max-width: 900px) {
@@ -551,12 +597,14 @@ h2 {
 
   .chapter-head,
   .book-grid,
+  .spot-grid,
   .cards,
   .gallery,
   .gallery-detail { grid-template-columns: minmax(0, 1fr); }
 
   .chapter-head > *,
-  .book-grid > * { min-width: 0; }
+  .book-grid > *,
+  .spot-grid > * { min-width: 0; }
 
   .facts { grid-template-columns: 1fr 1fr; }
 
