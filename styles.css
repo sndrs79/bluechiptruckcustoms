@@ -459,6 +459,37 @@ h2 {
 
 .book-copy p { max-width: 28em; }
 
+.rates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 28px;
+  width: 100%;
+  max-width: 28em;
+  margin: 0;
+}
+
+.rates dt {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.rates dd {
+  margin: 4px 0 0;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.book-copy p.rate-note {
+  color: var(--muted);
+  font-size: 15px;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
