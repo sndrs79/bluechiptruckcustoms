@@ -274,9 +274,66 @@ h2 {
   line-height: 1.5;
 }
 
+.chapter h2 {
+  max-width: 9em;
+  font-size: clamp(32px, 4.8vw, 64px);
+  line-height: 0.92;
+}
+
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 40em;
+  margin-top: 28px;
+}
+
+.prose p,
+.page-copy p {
+  margin: 0;
+  color: #ddd7ce;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.page { padding: 72px 0 88px; }
+
+.page h1 {
+  margin: 0;
+  max-width: 12em;
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+}
+
+.page-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 40em;
+  margin-top: 28px;
+}
+
+.page .book-copy { margin-top: 28px; }
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.footer-links a:hover { color: var(--ink); }
+
 .facts {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px 18px;
   margin: 28px auto 0;
   padding-top: 18px;
@@ -597,7 +654,10 @@ h2 {
   .wrap { width: min(var(--max), calc(100% - 32px)); }
 
   .site-header {
-    padding: 0 10px;
+    height: auto;
+    min-height: var(--header);
+    flex-wrap: wrap;
+    padding: 8px 10px;
     gap: 8px;
   }
 
@@ -607,7 +667,11 @@ h2 {
 
   .mark-rest { display: none; }
 
-  .nav { gap: 4px; }
+  .nav {
+    gap: 8px 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
 
   .nav a {
     font-size: 12px;
