@@ -60,6 +60,41 @@ a { color: inherit; }
 
 .skip:focus { top: 12px; }
 
+.show-flag {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px 28px;
+  width: 100%;
+  padding: 14px 24px;
+  background: #f4c400;
+  color: #1a1206;
+  text-decoration: none;
+  border-bottom: 7px solid #c4121a;
+}
+
+.show-flag-title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.show-flag-link {
+  font-size: 15px;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.show-flag:hover { background: #ffd84a; }
+
+.show-flag:focus-visible {
+  outline: 3px solid #1a1206;
+  outline-offset: -6px;
+}
+
 .sr {
   position: absolute;
   width: 1px;
