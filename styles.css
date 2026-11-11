@@ -60,58 +60,6 @@ a { color: inherit; }
 
 .skip:focus { top: 12px; }
 
-.show-flag {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px 28px;
-  width: 100%;
-  padding: 12px 24px;
-  background: #f8e0b0;
-  color: #102038;
-  text-decoration: none;
-  border-bottom: 7px solid #b01008;
-}
-
-.show-flag-title {
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #102038;
-}
-
-.show-flag-free {
-  color: #b01008;
-  margin-right: 0.35em;
-}
-
-.show-flag-only {
-  background: #102038;
-  color: #f8e0b0;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 6px 12px;
-}
-
-.show-flag-link {
-  font-size: 15px;
-  font-weight: 650;
-  color: #102038;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.show-flag:hover { background: #fae6bc; }
-
-.show-flag:focus-visible {
-  outline: 3px solid #102038;
-  outline-offset: -6px;
-}
-
 .sr {
   position: absolute;
   width: 1px;
