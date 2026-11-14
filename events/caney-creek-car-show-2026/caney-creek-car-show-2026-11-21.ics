@@ -1,0 +1,41 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Blue Chip Truck Customs//CCHS Car Show 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Chicago
+X-LIC-LOCATION:America/Chicago
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0600
+TZOFFSETTO:-0500
+TZNAME:CDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0600
+TZNAME:CST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:caney-creek-car-show-2026-11-21@bluechiptruckcustoms.com
+DTSTAMP:20261113T111013Z
+DTSTART;TZID=America/Chicago:20261121T080000
+DTEND;TZID=America/Chicago:20261121T120000
+SUMMARY:Caney Creek High School Annual Car Show
+LOCATION:Caney Creek High School\, 13470 FM 1485\, Conroe\, TX
+DESCRIPTION:Presented by Grangerland Intermediate PTO and Caney Creek NJROT
+ C. Car show entry $35. Vendor booths $20. Trophies. Limited to 100 spots. 
+ Pre-registration recommended. Jeremiah's Italian Ice will be there. Blue C
+ hip Truck Customs is proud to support this show. Look for Blue Chip's truc
+ ks at the show: Ophelia\, the orange 1956 GMC\, and the blue '58 GMC.
+URL:https://bluechiptruckcustoms.com/events/caney-creek-car-show-2026/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:0
+END:VEVENT
+END:VCALENDAR

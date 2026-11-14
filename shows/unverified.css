@@ -1,0 +1,19 @@
+/* v1.2.3 — Unverified label styles. Loaded by app.js so they survive a restyle of styles.css. */
+.tag-unverified {
+  background: #3a2a00;
+  color: #ffd777;
+  border: 1px solid #b88500;
+  font-weight: 600;
+}
+.tag-tentative {
+  background: transparent;
+  color: #ffd777;
+  border: 1px dashed #b88500;
+}
+.unverified-note {
+  margin: 0.5rem 0 1rem;
+  padding: 0.6rem 0.8rem;
+  border-left: 4px solid #b88500;
+  background: rgba(184, 133, 0, 0.12);
+}
+.source-link { text-decoration: underline; }

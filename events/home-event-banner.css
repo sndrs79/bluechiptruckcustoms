@@ -1,0 +1,67 @@
+/* Homepage promo for the Caney Creek High School Annual Car Show.
+   Uses live-site tokens (--bg, --ink, --muted, --orange, --line) and .wrap / .btn.
+   Linked only from the homepage. Remove this file (and its link) on 2026-11-22. */
+
+.event-promo {
+  padding: 36px 0 8px;
+}
+
+.event-promo-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 28px 28px 32px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.event-promo-kicker {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.event-promo-title {
+  margin: 0;
+  max-width: 16em;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.event-promo-title a {
+  text-decoration: none;
+}
+
+.event-promo-title a:hover { color: var(--orange); }
+
+.event-promo-meta,
+.event-promo-support,
+.event-promo-trucks {
+  margin: 0;
+  max-width: 36em;
+  color: #ddd7ce;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.event-promo-trucks a {
+  font-weight: 600;
+  color: var(--ink);
+  text-underline-offset: 3px;
+}
+
+.event-promo-trucks a:hover { color: var(--orange); }
+
+.event-promo .btn { margin-top: 8px; }
+
+@media (max-width: 900px) {
+  .event-promo { padding: 24px 0 0; }
+  .event-promo-inner { padding: 22px 18px 24px; }
+  .event-promo .btn { width: 100%; }
+}

@@ -2,6 +2,26 @@ import { cityNames } from "./js/cities.js";
 import { chicagoYmd } from "./js/clock.js";
 import { filterShows } from "./js/filter.js";
 import { API_BASE } from "./js/config.js";
+import {
+  escapeHtml,
+  isUnverified,
+  safeHref,
+  timeLabelOf,
+  unverifiedBadgeHtml,
+  tentativeTagHtml,
+  sourceLinkHtml,
+  unverifiedNoticeHtml
+} from "./js/badge.js";
+
+// The Unverified badge styles live in their own file so a site restyle of styles.css
+// cannot drop them. If the file is missing the badge still shows as a plain tag.
+if (!document.querySelector('link[data-unverified-css]')) {
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = "/shows/unverified.css?v=1.2.3";
+  link.setAttribute("data-unverified-css", "");
+  document.head.append(link);
+}
 
 const listEl = document.getElementById("list");
 const emptyEl = document.getElementById("empty");
@@ -60,8 +80,10 @@ function card(show) {
   el.id = `show-${show.id}`;
   el.innerHTML = `
     <div class="card-top">
-      <p class="when">${escapeHtml(show.date_label)}${show.end_date_label && show.end_date !== show.date ? " – " + escapeHtml(show.end_date_label) : ""} · ${escapeHtml(show.start_time_label)}–${escapeHtml(show.end_time_label)}</p>
+      <p class="when">${escapeHtml(show.date_label)}${show.end_date_label && show.end_date !== show.date ? " – " + escapeHtml(show.end_date_label) : ""} · ${escapeHtml(whenTime(show))}</p>
       <div class="tags">
+        ${unverifiedBadgeHtml(show)}
+        ${tentativeTagHtml(show)}
         ${show.status === "cancelled" ? '<span class="tag tag-cancelled">Cancelled</span>' : ""}
         ${show.classic_trucks_welcome ? '<span class="tag tag-classic">Classic trucks welcome</span>' : ""}
         ${show.is_test ? '<span class="tag tag-test">TEST</span>' : ""}
@@ -75,10 +97,11 @@ function card(show) {
       <div><dt>Spectator fee</dt><dd>${escapeHtml(fee(show.spectator_fee_label))}</dd></div>
       <div><dt>Car-entry fee</dt><dd>${escapeHtml(fee(show.car_entry_fee_label))}</dd></div>
       <div><dt>Rain</dt><dd>${escapeHtml(show.rain || "Not listed")}</dd></div>
-      <div><dt>Last confirmed</dt><dd>${escapeHtml(show.last_confirmed || "Not listed")}</dd></div>
+      <div><dt>${isUnverified(show) ? "Confirmed by organizer" : "Last confirmed"}</dt><dd>${escapeHtml(isUnverified(show) ? "Not yet" : show.last_confirmed || "Not listed")}</dd></div>
     </dl>
     <div class="card-actions">
-      <a href="${escapeAttr(show.organizer_page_url)}" rel="noopener noreferrer">Organizer page</a>
+      ${safeHref(show.organizer_page_url) ? `<a href="${escapeAttr(show.organizer_page_url)}" rel="noopener noreferrer">Organizer page</a>` : ""}
+      ${sourceLinkHtml(show)}
       <a href="${escapeAttr(show.directions_url)}" rel="noopener noreferrer">Directions</a>
       <a href="${escapeAttr(reportHref(show))}">Report a problem</a>
       <a href="?show=${encodeURIComponent(show.id)}">Open listing</a>
@@ -96,23 +119,27 @@ function renderDetail(show) {
   detailEl.hidden = false;
   detailEl.innerHTML = `
     <p class="eyebrow">Listing</p>
-    <p class="when">${escapeHtml(show.date_label)} · ${escapeHtml(show.start_time_label)}–${escapeHtml(show.end_time_label)}</p>
+    <p class="when">${escapeHtml(show.date_label)} · ${escapeHtml(whenTime(show))}</p>
     <h2>${escapeHtml(show.title)}</h2>
+    <div class="tags">${unverifiedBadgeHtml(show)}${tentativeTagHtml(show)}</div>
+    ${unverifiedNoticeHtml(show)}
     ${show.status === "cancelled" ? '<p class="tag tag-cancelled">Cancelled — this page stays up so a saved link still shows the status.</p>' : ""}
     <dl class="facts">
       <div><dt>Full street address</dt><dd>${escapeHtml(show.full_address)}</dd></div>
       <div><dt>Venue</dt><dd>${escapeHtml(show.venue_name || "Not listed")}</dd></div>
       <div><dt>Date (with year)</dt><dd>${escapeHtml(show.date_label)}${show.end_date_label && show.end_date !== show.date ? " – " + escapeHtml(show.end_date_label) : ""}</dd></div>
-      <div><dt>Times</dt><dd>${escapeHtml(show.start_time_label)} to ${escapeHtml(show.end_time_label)}</dd></div>
+      <div><dt>Times</dt><dd>${escapeHtml(show.start_time_label && show.end_time_label ? `${show.start_time_label} to ${show.end_time_label}` : whenTime(show))}</dd></div>
+      ${show.recurrence ? `<div><dt>Schedule</dt><dd>${escapeHtml(show.recurrence)}</dd></div>` : ""}
       <div><dt>Spectator fee</dt><dd>${escapeHtml(fee(show.spectator_fee_label))}</dd></div>
       <div><dt>Car-entry fee</dt><dd>${escapeHtml(fee(show.car_entry_fee_label))}</dd></div>
       <div><dt>Rain date or rain or shine</dt><dd>${escapeHtml(show.rain || "Not listed")}</dd></div>
-      <div><dt>Last confirmed</dt><dd>${escapeHtml(show.last_confirmed || "Not listed")}</dd></div>
-      <div><dt>Organizer</dt><dd>${escapeHtml(show.organizer_name)}</dd></div>
+      <div><dt>${isUnverified(show) ? "Confirmed by organizer" : "Last confirmed"}</dt><dd>${escapeHtml(isUnverified(show) ? "Not yet" : show.last_confirmed || "Not listed")}</dd></div>
+      <div><dt>Organizer</dt><dd>${escapeHtml(show.organizer_name || "Not listed")}</dd></div>
       <div><dt>Classic trucks welcome</dt><dd>${show.classic_trucks_welcome ? "Yes (filter tag)" : "Not tagged"}</dd></div>
     </dl>
     <div class="card-actions">
-      <a href="${escapeAttr(show.organizer_page_url)}" rel="noopener noreferrer">Organizer’s own page</a>
+      ${safeHref(show.organizer_page_url) ? `<a href="${escapeAttr(show.organizer_page_url)}" rel="noopener noreferrer">Organizer’s own page</a>` : ""}
+      ${sourceLinkHtml(show)}
       <a href="${escapeAttr(show.directions_url)}" rel="noopener noreferrer">Directions (opens maps)</a>
       <a href="${escapeAttr(reportHref(show))}">Report a problem</a>
       <a href="/shows/">Back to the list</a>
@@ -169,13 +196,12 @@ function reportHref(show) {
   return `${apiBase}/shows/report/?id=${encodeURIComponent(id)}`;
 }
 
-function escapeHtml(value) {
-  return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
+/** Older API responses have no time_label; fall back to the v1.2.2 composition. */
+function whenTime(show) {
+  if (show.time_label) return show.time_label;
+  return timeLabelOf(show);
 }
+
 function escapeAttr(value) {
   return escapeHtml(value).replaceAll("'", "&#39;");
 }
@@ -210,7 +236,7 @@ function clearLoadError() {
   if (errorEl) errorEl.hidden = true;
 }
 
-async function loadShows() {
+async function loadShows({ fresh = false } = {}) {
   loadState = "loading";
   clearLoadError();
   emptyEl.hidden = true;
@@ -220,7 +246,9 @@ async function loadShows() {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), LOAD_TIMEOUT_MS);
   try {
-    const res = await fetch(`${apiBase}/api/shows`, { cache: "no-store", signal: controller.signal });
+    // The API answers with Cache-Control: public, max-age=60, so the browser may reuse a
+    // response for a minute. Retry asks for a fresh copy.
+    const res = await fetch(`${apiBase}/api/shows`, { cache: fresh ? "reload" : "default", signal: controller.signal });
     if (!res.ok) throw new Error("bad-status");
     const body = await res.json();
     if (!body || !Array.isArray(body.shows)) throw new Error("bad-json");
@@ -236,6 +264,6 @@ async function loadShows() {
   }
 }
 
-if (retryBtn) retryBtn.addEventListener("click", () => loadShows());
+if (retryBtn) retryBtn.addEventListener("click", () => loadShows({ fresh: true }));
 
 await loadShows();
