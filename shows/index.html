@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Car shows | Blue Chip Truck Customs</title>
+<meta name="description" content="Free Greater Houston and Southeast Texas car show calendar from Blue Chip Truck Customs. Upcoming shows, soonest first.">
+<link rel="canonical" href="https://bluechiptruckcustoms.com/shows/">
+<meta name="theme-color" content="#090909">
+<link rel="icon" href="/shows/favicon.png" type="image/png">
+<link rel="preload" href="/shows/fonts/Outfit-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/shows/styles.css">
+<script type="module" src="/shows/app.js"></script>
+<!-- Cloudflare Web Analytics
+     Enable only after Mike adds a token from the Cloudflare dashboard
+     for bluechiptruckcustoms.com. Do not invent or commit a token.
+     Official beacon, cookieless; UTM is not supported.
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "REPLACE_WITH_TOKEN_FROM_MIKE_CLOUDFLARE_ACCOUNT"}'></script>
+     End Cloudflare Web Analytics -->
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the shows</a>
+  <header class="site-header">
+    <p class="mark">
+      <a href="/">
+        <span class="chip" aria-hidden="true"></span>
+        Blue Chip
+        <span class="mark-rest">Truck Customs</span>
+      </a>
+    </p>
+    <nav class="nav" aria-label="Primary">
+      <a href="/#trucks">Trucks</a>
+      <a href="/ophelia/">Ophelia</a>
+      <a href="/58/">The 58</a>
+      <a href="/#gear">Gear</a>
+      <a href="/#follow">Follow</a>
+      <a href="/shows/" aria-current="page">Car Shows</a>
+      <a href="/contact/">Contact</a>
+      <a class="nav-book" href="/contact/">Book</a>
+    </nav>
+  </header>
+<main id="main" class="page">
+<div class="wrap">
+
+  <p class="eyebrow">Greater Houston / Southeast Texas</p>
+  <h1>Find a car show</h1>
+  <p class="lede">Upcoming shows, soonest first. Every row has a street address, the year, start and end times, spectator and car-entry fees, and a link to the organizer’s own page. No account, no ads. Directions open in your maps app — there is no map on this page.</p>
+
+  <form class="filters" id="filters" role="search">
+    <label>From
+      <input type="date" name="from" id="date-from">
+    </label>
+    <label>To
+      <input type="date" name="to" id="date-to">
+    </label>
+    <label>City
+      <select name="city" id="city">
+        <option value="">All cities</option>
+      </select>
+    </label>
+    <label class="check"><input type="checkbox" name="classic" id="classic"> Classic trucks welcome</label>
+    <label class="span-2">Distance from
+      <select name="origin" id="origin">
+        <option value="">No distance filter</option>
+      </select>
+    </label>
+    <label>Within
+      <select name="radius" id="radius" disabled>
+        <option value="10">10 miles</option>
+        <option value="25" selected>25 miles</option>
+        <option value="50">50 miles</option>
+        <option value="100">100 miles</option>
+      </select>
+    </label>
+    <div class="filters-meta">
+      <p id="status">Loading shows…</p>
+      <p>Default view hides past dates.</p>
+    </div>
+    <p class="problem" id="filter-problems" hidden></p>
+  </form>
+
+  <section class="detail" id="detail" hidden></section>
+  <section class="list" id="list" aria-live="polite"></section>
+  <p class="empty" id="empty" hidden>No upcoming shows are listed yet.</p>
+  <div class="notice err load-error" id="load-error" hidden role="alert">
+    <p>Couldn't load shows. Check your connection and try again.</p>
+    <button type="button" class="btn" id="retry-shows">Retry</button>
+  </div>
+
+</div>
+</main>
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <p>Blue Chip Truck Customs, Conroe, Texas, near Houston. The calendar is free. Listings are organizer-submitted or organizer-permitted only.</p>
+      <div class="footer-links">
+        <a href="/shows/">Shows</a>
+        <a href="https://carshow-finder.pages.dev/shows/submit/">List a show</a>
+        <a href="/shows/badge/">Badge</a>
+        <a href="https://carshow-finder.pages.dev/shows/report/">Report a problem</a>
+        <a href="https://bluechiptruckcustoms.com/">bluechiptruckcustoms.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
