@@ -1,0 +1,153 @@
+@font-face{font-family:Outfit;src:url("../fonts/Outfit-Variable.woff2") format("woff2");font-weight:100 900;font-display:swap}
+:root{--bg:#090909;--ink:#f4f1ea;--muted:#b7b1a8;--orange:#ff6a1a;--blue:#8ecfff;--line:rgba(244,241,234,.18)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:430 18px/1.6 Outfit,"Segoe UI",system-ui,sans-serif}a{color:inherit;text-underline-offset:5px}a:focus-visible{outline:3px solid var(--blue);outline-offset:6px}.wrap{width:min(1120px,calc(100% - 48px));margin-inline:auto}header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-block:25px;border-bottom:1px solid var(--line)}.brand{text-decoration:none;font-weight:850;letter-spacing:.06em;line-height:1.15}.brand span{display:block;font-size:11px;letter-spacing:.25em;color:var(--muted)}.home{font-size:14px}.hero{padding-block:85px 65px}.eyebrow{color:var(--orange);font-size:12px;font-weight:750;letter-spacing:.15em}h1,h2,h3{line-height:1.05;letter-spacing:-.04em;margin:0}h1{font-size:clamp(56px,9vw,112px);font-weight:800;margin:24px 0}h1 em{font-style:normal;color:var(--orange)}.lead{font-size:clamp(20px,3vw,26px);max-width:680px;color:var(--muted)}.button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 24px;background:var(--orange);color:#140800;text-decoration:none;font-weight:750;border-radius:5px;margin-block:16px}.button:hover{background:#ff8c50}.note{font-size:14px;color:var(--muted);max-width:650px}.section{padding-block:60px;border-top:1px solid var(--line)}h2{font-size:clamp(34px,5vw,58px);margin-block:15px 28px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}.grid article{padding:24px;background:#121212;border:1px solid var(--line);min-height:190px;border-radius:7px}.number{color:var(--blue);font-size:14px;font-weight:700}h3{font-size:26px;line-height:1.15;margin-top:35px}.steps{display:grid;grid-template-columns:1fr 1fr;gap:80px}.steps p,.recognition p{max-width:760px;color:var(--muted)}li{padding-left:5px;margin-block:7px}.textlink{color:var(--blue);font-weight:650}.deadline{border-left:4px solid var(--orange);background:#1c150e;padding:28px 32px;margin-block:20px 55px;width:min(1120px,calc(100% - 48px))}.deadline h2{font-size:clamp(28px,4vw,40px)}.deadline p{max-width:890px}.deadline strong,.recognition strong{color:var(--ink)}footer{padding-block:35px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}.skip{position:absolute;left:20px;top:-80px;background:var(--ink);color:var(--bg);padding:12px;z-index:5}.skip:focus{top:10px}@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr;gap:35px}.hero{padding-block:50px}.section{padding-block:40px}.home{max-width:110px;text-align:right}.grid article{padding:18px;min-height:170px}h3{font-size:23px}.deadline{padding:22px}.button{font-size:16px}}@media(max-width:360px){.wrap{width:calc(100% - 32px)}.grid{grid-template-columns:1fr}h1{font-size:50px}}
+/* --- winners showcase v8 --- */
+.winners-tag{display:inline-block;margin:12px 0 0;padding:6px 10px;border:1px solid var(--orange);color:var(--orange);font-size:12px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;border-radius:4px}
+.winners-tag--inline{margin:10px 0 0}
+.winners-intro{max-width:820px;color:var(--muted);margin:16px 0 8px;font-size:clamp(16px,2.2vw,18px);line-height:1.55}
+.best-of-show{margin-top:36px;padding:28px;background:#14110e;border:1px solid rgba(255,106,26,.45);border-radius:7px}
+.bos-eyebrow{margin:0;color:var(--orange);font-size:12px;font-weight:750;letter-spacing:.12em}
+.best-of-show > #bos-heading{margin:14px 0 22px;font-size:clamp(28px,4vw,40px);letter-spacing:-.03em}
+.bos-card{display:flex;flex-direction:row;align-items:stretch;gap:28px}
+.bos-media{flex:0 0 min(38%,340px);max-width:340px;min-width:0}.bos-media .bos-frame{width:100%;max-width:none}
+.bos-copy{flex:1;display:flex;flex-direction:column;gap:12px;min-width:0}
+.bos-name{font-size:clamp(20px,2.6vw,26px);font-weight:700}
+.bos-body{margin:0;color:var(--muted);font-size:clamp(16px,2.1vw,18px);line-height:1.55;max-width:640px}
+.bos-note{margin:4px 0 0;color:var(--muted);font-size:13px;letter-spacing:.02em}
+.category-winners{margin-top:40px}
+.category-winners-heading{margin:0 0 4px;color:var(--orange);font-size:12px;font-weight:750;letter-spacing:.15em;text-transform:uppercase}
+.winners-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.winner-card{padding:24px;background:#121212;border:1px solid var(--line);border-radius:7px;display:flex;flex-direction:column;gap:10px;min-height:0}
+.winner-frame{aspect-ratio:4/3;width:100%;background:#0d0d0d;border:1px dashed var(--line);border-radius:5px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:12px;text-align:center;box-sizing:border-box}
+.winner-frame-label{color:var(--muted);font-size:13px;line-height:1.35;max-width:14em}
+.winner-frames--pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.winner-card h3{font-size:22px;line-height:1.15;margin:4px 0 0;letter-spacing:-.03em}
+.winner-blurb{margin:0;color:var(--ink);font-size:15px;font-weight:550;line-height:1.35}
+.winner-name{margin:0;color:var(--ink);font-size:17px;font-weight:650;line-height:1.3}
+.winner-status{margin:0;color:var(--muted);font-size:14px}
+.winner-card-body{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+.winners-closing{margin:28px 0 0;color:var(--muted);font-size:16px;max-width:760px}
+@media(max-width:760px){.winners-grid{grid-template-columns:repeat(2,1fr)}.winner-card{padding:18px}.winner-card h3{font-size:20px}.bos-card{flex-direction:column;align-items:stretch}.bos-media{flex:none;max-width:none;width:100%}.bos-media .bos-frame{width:100%}.best-of-show{padding:22px}.best-of-show > #bos-heading{font-size:26px}}
+@media(max-width:390px){.winners-grid{grid-template-columns:1fr}.winners-intro{font-size:16px}.winner-frames--pair{gap:6px}.winner-frame-label{font-size:12px}.bos-body{font-size:16px}}
+
+.winner-frame--photo{padding:0;border-style:solid;border-color:var(--line);overflow:hidden;display:block;position:relative;background:#0d0d0d}
+.winner-frame--photo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit}
+.bos-frame.winner-frame--photo{aspect-ratio:4/3}
+.photo-credit{margin:8px 0 0;color:var(--muted);font-size:12px;line-height:1.35}
+.bos-card .photo-credit{position:static;padding:0 2px}
+
+.bos-media .photo-credit{margin-top:8px}
+
+.bos-media{display:flex;flex-direction:column;gap:12px}
+.bos-photo-wrap{margin:0}
+.winner-frame--design{padding:0;border-style:solid;border-color:var(--line);overflow:hidden;display:block;background:#0a0a0a;aspect-ratio:1/1}
+.winner-frame--design img{width:100%;height:100%;object-fit:contain;display:block;background:#0a0a0a}
+.winner-card--gated{border-color:rgba(255,106,26,.35);box-shadow:inset 0 0 0 1px rgba(255,106,26,.12)}
+.gate-tag{margin:0;padding:5px 8px;border:1px dashed var(--orange);color:var(--orange);font-size:11px;font-weight:750;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;align-self:flex-start}
+.flag-open{display:inline-block;margin-left:2px;padding:1px 6px;border:1px solid rgba(255,106,26,.7);color:var(--orange);font-size:12px;font-weight:700;letter-spacing:.04em;border-radius:3px;vertical-align:middle}
+
+
+.winner-frames--stack{display:flex;flex-direction:column;gap:8px}
+.winner-frames--stack .winner-frame--photo{aspect-ratio:4/3}
+.winner-frames--stack .winner-frame--design{aspect-ratio:1/1}
+.winner-frame--photo figcaption.photo-credit{position:absolute;left:0;right:0;bottom:0;margin:0;padding:6px 8px;background:rgba(0,0,0,.65);color:var(--muted);font-size:11px;line-height:1.3}
+.winner-card .gate-tag{margin-bottom:2px}
+
+.lott-photo-wrap{margin:0;width:100%}.lott-photo-wrap .winner-frame--photo{width:100%}
+
+.tie-frame{display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.tie-entry{display:flex;flex-direction:column;gap:8px;padding:10px;border:1px solid var(--line);border-radius:5px;background:#0e0e0e}
+.tie-entry .winner-name{font-size:15px}
+.tie-entry .winner-card-body{font-size:13px}
+.winner-card--tie{gap:8px}
+@media(min-width:761px){
+  .winner-card--tie{grid-column:span 2}
+  .tie-frame{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:14px}
+}
+@media(max-width:390px){
+  .tie-frame{gap:10px}
+}
+
+/* --- winners v9 --- */
+.tie-entry .winner-frame--design{margin:0;width:100%}
+.winner-card .winner-frame--design{margin:0}
+.preview-only-tag{margin:0;border-style:solid;color:#ffd7b0;background:#3a1408;text-transform:none;letter-spacing:.02em;font-size:12px;line-height:1.35}
+
+/* --- winners v10: card frame system adapted from GMC Showcase winners-feature-2026-11-12-v4 ---
+   3:2 photo frames, 8:9 design frames (1200x1350), object-fit, radius, shadow, captions.
+   Grid/column layout is unchanged from v9 (4 columns, Best Custom spans 2, stacks below 761px). */
+.winner-card{border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.45);min-width:0}
+.winners-grid{align-items:start}
+.winner-frame--photo,.winner-frames--stack .winner-frame--photo,.bos-frame.winner-frame--photo{aspect-ratio:3/2;border:0;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.4);background:#0d0d0d}
+.winner-frame--photo img{object-fit:cover;object-position:center;border-radius:0}
+.winner-frame--design,.winner-frames--stack .winner-frame--design{aspect-ratio:8/9;border:0;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.4);background:#000}
+.winner-frame--design img{object-fit:contain;background:#000}
+.winner-frame--photo picture,.winner-frame--design picture{display:block;width:100%;height:100%}
+.photo-credit{padding:0 2px;font-size:13px}
+.winner-frames--stack{gap:12px}
+.winner-frames--stack>*{min-width:0;margin:0}
+.tie-entry{min-width:0}
+
+/* --- winners v10 layout pass (Nov 13): one card system ---
+   Every entrant (single winners and each Best Custom tie entry) gets the same width,
+   the same rows (category head, tag slot, 3:2 photo + caption, 8:9 design, name, details)
+   and identical frame sizes. Desktop uses CSS subgrid so rows line up across a row of cards. */
+.winners-grid{--card-pad:24px;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:14px;row-gap:14px;align-items:stretch}
+.winner-card,.winner-card--tie{padding:var(--card-pad);gap:0;row-gap:12px;display:flex;flex-direction:column}
+.winner-card>*,.tie-entry>*{margin:0}
+.card-head{display:flex;flex-direction:column;gap:6px}
+.card-head h3{margin:0}
+.tag-slot{display:flex;align-items:flex-start;padding-top:4px}
+.tag-slot:empty{display:block}
+.tag-slot .gate-tag{margin:0}
+.lott-photo-wrap{display:flex;flex-direction:column}
+.lott-photo-wrap .photo-credit{margin:8px 0 0;min-height:1.35em}
+.winner-frame--photo,.winner-frame--design{width:100%;margin:0}
+.winner-frame--design,.winner-frame--design img{background:#000}
+.winner-frame--photo img,.winner-frame--design img{object-position:center}
+.card-extra{display:flex;flex-direction:column;gap:6px}
+.card-extra:empty{display:none}
+.winner-card .winner-name,.tie-entry .winner-name{font-size:17px}
+.winner-card .winner-card-body,.tie-entry .winner-card-body{font-size:14px}
+/* Best Custom: wrapper spans two columns; each tie entry is a full card the same width as a single-winner card */
+.winner-card--tie{padding:0;background:#121212}
+.winner-card--tie>.card-head{padding:var(--card-pad) var(--card-pad) 0}
+.tie-entry{padding:0 var(--card-pad) var(--card-pad);border:0;border-radius:0;background:transparent;display:flex;flex-direction:column;row-gap:12px;min-width:0}
+.tie-entry+.tie-entry{box-shadow:inset 1px 0 0 var(--line)}
+@supports (grid-template-rows:subgrid){
+  @media(min-width:761px){
+    .winner-card{display:grid;grid-row:span 6;grid-template-rows:subgrid;row-gap:12px}
+    .winner-card--tie{grid-column:span 2;grid-template-columns:subgrid;column-gap:0}
+    .winner-card--tie>.card-head{grid-column:1/-1;grid-row:1}
+    .tie-entry{display:grid;grid-row:2/span 5;grid-template-rows:subgrid;row-gap:12px;padding-inline:calc(var(--card-pad) + .5px)}
+    .winner-card--tie>.tie-entry:nth-child(2){grid-column:1}.winner-card--tie>.tie-entry:nth-child(3){grid-column:2}
+    /* keep each tie entry exactly one column wide incl. padding, same as a single card */
+    .winner-card--tie{column-gap:14px}
+    .winner-card .card-extra{align-self:start}
+  }
+}
+@media(min-width:761px) and (max-width:1023px){
+  .winners-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-flow:row dense}
+}
+@media(max-width:760px){
+  .winners-grid{grid-template-columns:minmax(0,420px);justify-content:center;--card-pad:20px}
+  .winner-card--tie{grid-column:auto}
+  .tie-entry+.tie-entry{box-shadow:inset 0 1px 0 var(--line);padding-top:var(--card-pad)}
+}
+@media(max-width:760px){.tag-slot:empty{display:none}}
+
+/* v10 6-track tie rebalance removed in publish v1: three equal category cards, one centered row. */
+
+/* --- publish v1: Best of Show above a 2×2 of equal 1st-place cards, no orphan.
+   Desktop/tablet: two columns, two rows. Phone: one centered column. */
+.winners-grid{grid-template-columns:repeat(2,minmax(0,1fr));justify-content:center;align-items:stretch}
+#most-original,#best-custom,#best-daily-driver,#ugliest-truck{grid-column:auto;grid-row:auto}
+@media(min-width:761px){
+  .winners-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-flow:row;justify-content:center}
+  .winner-card{min-width:0}
+}
+@media(min-width:761px) and (max-width:1023px){
+  .winners-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  .winners-grid{grid-template-columns:minmax(0,420px);justify-content:center}
+}
