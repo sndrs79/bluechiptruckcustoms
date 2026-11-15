@@ -1,0 +1,33 @@
+/* Signup page only. Uses the site's own variables from /styles.css (--bg, --ink, --muted, --orange, --line, --max). */
+.alerts { max-width: 40em; margin-inline: auto; }
+.alerts .lede { margin: 18px 0 28px; color: #ddd7ce; font-size: 18px; line-height: 1.55; }
+.alerts-form { display: flex; flex-direction: column; gap: 20px; padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: #121212; }
+.alerts .field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.alerts .field > label { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.alerts .req { color: var(--muted); font-weight: 430; }
+.alerts input[type="email"], .alerts input[type="text"] { width: 100%; min-height: 48px; padding: 10px 14px; border: 1px solid #4a463f; border-radius: 12px; background: #0c0c0c; color: var(--ink); font: inherit; font-size: 17px; }
+.alerts input[type="email"]::placeholder { color: #8b867e; }
+.alerts input[aria-invalid="true"] { border-color: #ff6b6b; }
+.alerts a:focus-visible, .alerts button:focus-visible, .alerts input:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+.alerts .help { margin: 0; color: var(--muted); font-size: 14px; }
+.alerts .check { display: flex; align-items: flex-start; gap: 12px; font-size: 16px; line-height: 1.4; cursor: pointer; }
+.alerts .check input { flex: 0 0 auto; width: 24px; height: 24px; margin: 1px 0 0; accent-color: var(--orange); }
+.alerts .field-error { margin: 0; color: #ff9d9d; font-size: 14px; font-weight: 560; }
+.alerts-status { margin: 0 0 20px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: #161616; font-size: 16px; }
+.alerts-status[hidden], .field-error[hidden] { display: none; }
+.alerts-status-ok { border-color: #b6e3a866; }
+.alerts-status-err { border-color: #ff6b6b88; color: #ffd0d0; }
+.alerts-status:focus { outline: 2px solid var(--orange); outline-offset: 3px; }
+.alerts-status ul { margin: 6px 0 0; padding-left: 20px; }
+.alerts .btn { cursor: pointer; border: 0; font-family: inherit; }
+.alerts .btn[disabled] { opacity: 0.6; cursor: progress; }
+.alerts .btn-row { display: flex; }
+.alerts .btn-row .btn { width: 100%; }
+.privacy { margin: 16px 0 0; color: var(--muted); font-size: 14px; }
+.alerts-links { margin: 28px 0 0; font-size: 15px; }
+.alerts-links a { text-underline-offset: 3px; }
+/* Honeypot: off-screen, not display:none (some bots skip display:none fields). */
+.hp { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+@media (min-width: 640px) { .alerts .btn-row .btn { width: auto; min-width: 220px; } }
+@media (prefers-reduced-motion: reduce) { .alerts * { transition: none !important; } }
+.alerts-form[hidden] { display: none; }

@@ -151,3 +151,130 @@
 @media(max-width:760px){
   .winners-grid{grid-template-columns:minmax(0,420px);justify-content:center}
 }
+
+/* --- publish v4: no overlap between owner photo and design.
+   Desktop: the two images sit side by side.
+   Mobile (max-width 760px): they stack with a gap and no overlap.
+   Both images are shown in full. The design is not cropped (natural 8:9,
+   object-fit:contain, height:auto). Photos use the same full-image treatment
+   instead of object-fit:cover. Applies to Best of Show and all four category cards. */
+
+.winner-frames{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:12px;
+  align-items:start;
+  width:100%;
+  min-width:0;
+  position:static;
+}
+.winner-frames > *{
+  margin:0;
+  min-width:0;
+  position:static;
+}
+.bos-media{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:14px;
+  align-items:start;
+  flex:1 1 auto;
+  max-width:none;
+  width:100%;
+  min-width:0;
+  position:static;
+}
+.bos-media > *{
+  margin:0;
+  min-width:0;
+  position:static;
+}
+.bos-card{
+  display:grid;
+  grid-template-columns:minmax(0,1.45fr) minmax(16em,1fr);
+  gap:28px;
+  align-items:start;
+}
+.bos-copy{min-width:0}
+
+/* Show each image in full: size the frame to the image, do not crop. */
+.winner-frame--photo,
+.winner-frame--design,
+.winner-frames--stack .winner-frame--photo,
+.winner-frames--stack .winner-frame--design,
+.bos-frame.winner-frame--photo{
+  aspect-ratio:auto;
+  height:auto;
+  overflow:visible;
+  position:relative;
+  width:100%;
+}
+.winner-frame--photo picture,
+.winner-frame--design picture{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.winner-frame--photo img,
+.winner-frame--design img{
+  width:100%;
+  height:auto;
+  max-width:100%;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+}
+/* Caption stays under the photo, never over the design. */
+.lott-photo-wrap,
+.bos-photo-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.lott-photo-wrap .photo-credit,
+.bos-photo-wrap .photo-credit,
+.bos-card .photo-credit,
+.bos-media .photo-credit{
+  position:static;
+  margin:8px 0 0;
+  padding:0 2px;
+  background:none;
+}
+/* Winner cards are a simple column so the pair is one row, not two overlapping rows. */
+.winner-card,
+.winner-card--tie{
+  display:flex;
+  flex-direction:column;
+  grid-row:auto;
+}
+
+@media(min-width:761px){
+  .winner-frames,
+  .bos-media{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  }
+  .winner-card{
+    display:flex;
+    flex-direction:column;
+    grid-row:auto;
+  }
+}
+
+@media(max-width:760px){
+  .winner-frames,
+  .bos-media{
+    grid-template-columns:minmax(0,1fr);
+    gap:12px;
+  }
+  .bos-card{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:20px;
+  }
+  .bos-media{
+    flex:none;
+    max-width:none;
+    width:100%;
+  }
+}
