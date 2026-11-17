@@ -1,9 +1,22 @@
 /* Signup page helper. No third-party code, no cookies, no storage, no secrets.
+   0) if CLUB_FORM_URL (from /caney-creek-alerts/config.js) is non-empty AND ?src starts
+      with caney-creek, immediately location.replace to /caney-creek-alerts/ (query preserved).
+      While CLUB_FORM_URL is empty, do not redirect — Blue Chip's form stays in use.
    1) shows ?status= messages after Brevo redirects back here
    2) OPTIONAL, OFF BY DEFAULT: copies ?src / utm_* into a hidden SIGNUP_SOURCE field (see CAPTURE_SOURCE below)
    3) accessible inline validation (email + unchecked consent), then lets the browser POST to Brevo */
 (function () {
   'use strict';
+  // 0) Club-list cutover gate. Shared config is /caney-creek-alerts/config.js (loaded first).
+  // Fail-safe: if the config script did not load, treat the URL as empty and stay here.
+  var params = new URLSearchParams(window.location.search);
+  var clubUrl = (typeof CLUB_FORM_URL === 'string') ? CLUB_FORM_URL.trim() : '';
+  var src = (params.get('src') || '').toLowerCase();
+  if (clubUrl && src.indexOf('caney-creek') === 0) {
+    window.location.replace('/caney-creek-alerts/' + window.location.search);
+    return;
+  }
+
   // ---- Source capture flag --------------------------------------------------------------
   // Default FALSE: no SIGNUP_SOURCE field is added, so the POST contains only fields Brevo's own form uses.
   // Set to true ONLY after one test signup proves Brevo accepts an extra SIGNUP_SOURCE field and stores it

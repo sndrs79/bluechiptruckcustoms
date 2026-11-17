@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Caney Creek show alerts | Caney Creek NJROTC Booster Club</title>
+<meta name="description" content="Get alerts for the Caney Creek High School Annual Car Show from the Caney Creek NJROTC Booster Club, which owns this list and sends the emails. Blue Chip Truck Customs hosts this page and supports the show. Confirm by email, unsubscribe anytime.">
+<link rel="canonical" href="https://bluechiptruckcustoms.com/caney-creek-alerts/">
+<meta name="theme-color" content="#090909">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/Outfit-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/alerts/alerts.css">
+<link rel="stylesheet" href="/caney-creek-alerts/club-alerts.css">
+<script defer src="/caney-creek-alerts/config.js"></script>
+<script defer src="/caney-creek-alerts/club-alerts.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the main content</a>
+  <header class="site-header">
+    <p class="mark">
+      <a href="/">
+        <span class="chip" aria-hidden="true"></span>
+        Blue Chip
+        <span class="mark-rest">Truck Customs</span>
+      </a>
+    </p>
+    <nav class="nav" aria-label="Primary">
+      <a href="/#trucks">Trucks</a>
+      <a href="/ophelia/">Ophelia</a>
+      <a href="/58/">The 58</a>
+      <a href="/#gear">Gear</a>
+      <a href="/#follow">Follow</a>
+      <a href="/gmc-truck-show/">Truck Show</a>
+      <a href="/shows/">Car Shows</a>
+      <a href="/contact/">Contact</a>
+      <a class="nav-book" href="/contact/">Book</a>
+    </nav>
+  </header>
+
+<main id="main" class="page">
+<div class="wrap alerts" id="club-signup" data-club-form-url="">
+
+  <p class="eyebrow">Caney Creek High School Annual Car Show</p>
+  <h1>Get Caney Creek show alerts</h1>
+  <p class="lede">These emails are sent by the Caney Creek NJROTC Booster Club, which owns this list. Blue Chip Truck Customs hosts this page and supports the show; it does not run this list. The show is presented by Grangerland Intermediate PTO &amp; Caney Creek NJROTC. Free, no account. You confirm by email before anything is sent.</p>
+
+  <!-- Status messages. Filled by club-alerts.js from ?status=check-email | confirmed | error. -->
+  <div id="form-status" class="alerts-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
+
+  <!-- Error summary. Filled by club-alerts.js when a field is wrong. -->
+  <div id="form-errors" class="alerts-status alerts-status-err" role="alert" tabindex="-1" hidden></div>
+
+  <!-- Shown only while JS is about to send an unconfigured visit back to /alerts/. -->
+  <p id="club-redirect-note" class="alerts-status">Taking you to the signup page&hellip;</p>
+
+  <!--
+    Form markup lives in this template so that, while CLUB_FORM_URL is empty, no <form>
+    exists in the document and nothing can be submitted. club-alerts.js clones it and
+    sets action=CLUB_FORM_URL only when that config value is a non-empty club URL.
+    It will never use Blue Chip's sibforms URL. Field names mirror the Blue Chip v2 form:
+    EMAIL, FIRSTNAME (optional), email_address_check (honeypot), locale, html_type=simple.
+    The consent checkbox has NO name (client-side check only; never posted).
+    Paste the club form URL only in /caney-creek-alerts/config.js (CLUB_FORM_URL).
+  -->
+  <template id="club-form-template">
+  <form class="alerts-form" id="club-alerts-form" method="POST" data-type="subscription" aria-describedby="privacy-line">
+
+    <div class="field">
+      <label for="EMAIL">Email address <span class="req" aria-hidden="true">(required)</span></label>
+      <input type="email" id="EMAIL" name="EMAIL" autocomplete="email" inputmode="email" required aria-required="true" aria-describedby="email-help" placeholder="you@example.com" maxlength="200">
+      <p class="help" id="email-help">The booster club will send one email to confirm this address.</p>
+      <p class="field-error" id="EMAIL-error" hidden></p>
+    </div>
+
+    <div class="field">
+      <label for="FIRSTNAME">First name <span class="req">(optional)</span></label>
+      <input type="text" id="FIRSTNAME" name="FIRSTNAME" autocomplete="given-name" maxlength="200">
+    </div>
+
+    <div class="field consent">
+      <!-- Deliberately NOT pre-checked and NOT named (never posted). -->
+      <label class="check">
+        <input type="checkbox" id="OPT_IN" value="1" required aria-required="true" aria-describedby="OPT_IN-error">
+        <span>Yes, email me Caney Creek car show alerts from the Caney Creek NJROTC Booster Club. Unsubscribe anytime.</span>
+      </label>
+      <p class="field-error" id="OPT_IN-error" hidden></p>
+    </div>
+
+    <!-- Honeypot: people never see or fill this; bots often do. Same name Brevo uses on its own form. -->
+    <div class="hp" aria-hidden="true">
+      <label for="email_address_check">Leave this field empty</label>
+      <input type="text" id="email_address_check" name="email_address_check" value="" tabindex="-1" autocomplete="off">
+    </div>
+    <input type="hidden" name="locale" value="en">
+    <input type="hidden" name="html_type" value="simple">
+
+    <div class="btn-row">
+      <button class="btn" type="submit" id="club-alerts-submit">Get the alerts</button>
+    </div>
+  </form>
+  </template>
+
+  <p class="privacy" id="privacy-line">The Caney Creek NJROTC Booster Club only uses your email for these show alerts. They never sell or share it. Every email has an unsubscribe link. Your address is stored with the club's email service, Brevo, only so they can send them.</p>
+
+  <noscript>
+    <p class="alerts-status">JavaScript is off, so this page cannot open the club form or send you to the current signup page automatically. Until the booster club's own signup is open, use the <a href="/alerts/">Houston car show alerts</a> page (the form there still works without JavaScript). After club signups open, a signup link will be added here; you can also enable JavaScript and refresh.</p>
+  </noscript>
+
+  <p class="alerts-links"><a href="/events/caney-creek-car-show-2026/">Caney Creek show details</a> &middot; <a href="/alerts/">Blue Chip Houston car show alerts</a> &middot; <a href="/">Blue Chip Truck Customs</a></p>
+
+</div>
+</main>
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <p>This page is hosted by Blue Chip Truck Customs, Conroe, Texas, near Houston, for the Caney Creek NJROTC Booster Club. The club owns the list and sends the emails.</p>
+      <nav class="footer-links" aria-label="Pages">
+        <a href="/ophelia/">Ophelia</a>
+        <a href="/58/">The 58</a>
+        <a href="/shows/">Car Shows</a>
+        <a href="/events/caney-creek-car-show-2026/">Caney Creek show</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
