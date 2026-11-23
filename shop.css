@@ -1,0 +1,192 @@
+/* Shop section and design-only email drops placeholder for index.html.
+   Reuses the brand tokens from styles.css: black #090909, cream ink, orange #ff6a1a. */
+
+.shop {
+  margin-top: 64px;
+  padding: 64px 0 28px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 76px;
+}
+
+.shop-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 28px 40px;
+  align-items: center;
+}
+
+.shop-head-copy {
+  min-width: 0;
+}
+
+.shop h2 {
+  font-size: clamp(36px, 5.2vw, 72px);
+  line-height: 0.94;
+  margin: 0 0 16px;
+}
+
+.shop-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 22px;
+  margin-top: 22px;
+}
+
+.shop-actions .btn {
+  min-height: 44px;
+}
+
+.shop-actions .text-link {
+  margin-top: 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.shop-head-media {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: #161616;
+}
+
+.shop-head-media img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.cards.shop-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px 18px;
+  margin-top: 36px;
+}
+
+.shop-cards .card {
+  min-height: 44px;
+  border-radius: 16px;
+}
+
+.shop-cards .card:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
+}
+
+.shop-cards .card-copy {
+  padding: 14px 4px 4px;
+}
+
+.shop-cards .card strong {
+  font-size: 19px;
+  line-height: 1.25;
+}
+
+.shop-signup {
+  margin-top: 44px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #121212;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 20px 32px;
+  align-items: center;
+}
+
+.shop-signup-copy {
+  min-width: 0;
+}
+
+.shop-signup .eyebrow {
+  margin-bottom: 8px;
+}
+
+.shop-signup h3 {
+  margin: 0 0 8px;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.shop-signup p {
+  margin: 0;
+  color: #ddd7ce;
+  font-size: 15px;
+  line-height: 1.5;
+  max-width: 36em;
+}
+
+.shop-signup-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.shop-signup-field {
+  flex: 1 1 200px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px dashed var(--line);
+  background: rgba(244, 241, 234, 0.03);
+  color: var(--muted);
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.shop-signup-btn {
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 106, 26, 0.45);
+  background: rgba(255, 106, 26, 0.14);
+  color: var(--orange);
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .cards.shop-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .shop {
+    margin-top: 48px;
+    padding: 52px 0 20px;
+  }
+
+  .shop-head {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .shop-signup {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 22px;
+    margin-top: 32px;
+  }
+
+  .shop-signup-preview {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .cards.shop-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
