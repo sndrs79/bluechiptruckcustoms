@@ -26,6 +26,8 @@
 .winner-status{margin:0;color:var(--muted);font-size:14px}
 .winner-card-body{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
 .winners-closing{margin:28px 0 0;color:var(--muted);font-size:16px;max-width:760px}
+.winner-shirts{margin:16px 0 20px;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.winner-shirts a{color:var(--orange);font-weight:650}
 @media(max-width:760px){.winners-grid{grid-template-columns:repeat(2,1fr)}.winner-card{padding:18px}.winner-card h3{font-size:20px}.bos-card{flex-direction:column;align-items:stretch}.bos-media{flex:none;max-width:none;width:100%}.bos-media .bos-frame{width:100%}.best-of-show{padding:22px}.best-of-show > #bos-heading{font-size:26px}}
 @media(max-width:390px){.winners-grid{grid-template-columns:1fr}.winners-intro{font-size:16px}.winner-frames--pair{gap:6px}.winner-frame-label{font-size:12px}.bos-body{font-size:16px}}
 
